@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import PetForm from "./components/PetForm";
 import FilterBar from "./components/FilterBar";
 import PetList from "./components/PetList";
+import AnimalFact from "./components/AnimalFact";
 
 const initialPets = [
   {
@@ -61,8 +62,15 @@ function App() {
 
   return (
     <div className="app">
-      <Header total={pets.length} pending={pets.filter((p) => !p.attended).length} />
+      <Header
+        total={pets.length}
+        pending={pets.filter((p) => !p.attended).length}
+      />
+
+      <AnimalFact />
+
       <PetForm onAddPet={addPet} />
+
       <FilterBar
         search={search}
         setSearch={setSearch}
@@ -71,6 +79,7 @@ function App() {
         onlyUrgent={onlyUrgent}
         setOnlyUrgent={setOnlyUrgent}
       />
+
       <PetList
         pets={filteredPets}
         onDeletePet={deletePet}
